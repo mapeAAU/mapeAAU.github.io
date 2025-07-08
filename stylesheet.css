@@ -87,6 +87,8 @@ a:focus {
 
 .pub-text {
   flex: 1;
+  color: #000;
+  font-size: 14px;
 }
 
 .pub-text a.title {
