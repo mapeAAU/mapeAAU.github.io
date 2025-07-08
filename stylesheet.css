@@ -1,66 +1,55 @@
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v15/S6u8w4BMUTPHjxsAUi-qNiXg7eU0.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v15/S6u8w4BMUTPHjxsAXC-qNiXg7Q.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 700;
-  src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v15/S6u_w4BMUTPHjxsI5wq_FQftx9897sxZ.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 700;
-  src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v15/S6u_w4BMUTPHjxsI5wq_Gwftx9897g.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* latin-ext */
+/* Lato font face declarations */
+/* You can keep or remove these if you prefer Google Fonts via <link> in HTML */
+
 @font-face {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjxAwXiWtFCfQ7A.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: local('Lato Regular'), local('Lato-Regular'),
+       url(https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjx4wXiWtFCc.woff2) format('woff2');
 }
-/* latin */
 @font-face {
   font-family: 'Lato';
   font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'),
+       url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
   font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjx4wXiWtFCc.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: local('Lato Italic'), local('Lato-Italic'),
+       url(https://fonts.gstatic.com/s/lato/v15/S6u8w4BMUTPHjxsAXC-qNiXg7Q.woff2) format('woff2');
 }
-/* latin-ext */
 @font-face {
   font-family: 'Lato';
-  font-style: normal;
+  font-style: italic;
   font-weight: 700;
-  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwaPGQ3q5d0N7w.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: local('Lato Bold Italic'), local('Lato-BoldItalic'),
+       url(https://fonts.gstatic.com/s/lato/v15/S6u_w4BMUTPHjxsI5wq_Gwftx9897g.woff2) format('woff2');
 }
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
+
+/* Global styles */
+body {
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  line-height: 1.6;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 26px;
+  margin-top: 40px;
   font-weight: 700;
-  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+h2.heading {
+  font-size: 22px;
+  font-weight: 700;
 }
 
 a {
@@ -68,62 +57,82 @@ a {
   text-decoration: none;
 }
 
-a:focus,
-a:hover {
+a:hover,
+a:focus {
   color: #f09228;
   text-decoration: none;
 }
 
-body,
-td,
-th,
-tr,
-p,
-a {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px
+/* Publication layout styles */
+.publications-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 40px;
 }
 
-strong {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+.publication {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
 }
 
-heading {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 22px;
+.publication img {
+  width: 160px;
+  flex-shrink: 0;
+  border-radius: 4px;
 }
 
-papertitle {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 700
+.pub-text {
+  flex: 1;
 }
 
-name {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+.pub-text a.title {
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #000;
+}
+
+.pub-text a.title:hover {
+  text-decoration: underline;
+}
+
+.pub-links {
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+
+.pub-links a {
+  margin-right: 10px;
+}
+
+/* Responsive behavior */
+@media (max-width: 600px) {
+  .publication {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .publication img {
+    margin-bottom: 10px;
+  }
+
+  .pub-text {
+    text-align: center;
+  }
+}
+
+/* Optional: Additional helper classes */
+span.name {
   font-size: 32px;
+  font-weight: 700;
 }
 
-.one {
-  width: 160px;
-  height: 160px;
-  position: relative;
-}
-
-.two {
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
-}
-
-.fade {
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
+span.papertitle {
+  font-weight: 700;
 }
 
 span.highlight {
