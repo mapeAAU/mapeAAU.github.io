@@ -1,41 +1,82 @@
+/* Lato font face declarations */
+/* You can keep or remove these if you prefer Google Fonts via <link> in HTML */
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'),
+       url(https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjx4wXiWtFCc.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'),
+       url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Lato Italic'), local('Lato-Italic'),
+       url(https://fonts.gstatic.com/s/lato/v15/S6u8w4BMUTPHjxsAXC-qNiXg7Q.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Lato Bold Italic'), local('Lato-BoldItalic'),
+       url(https://fonts.gstatic.com/s/lato/v15/S6u_w4BMUTPHjxsI5wq_Gwftx9897g.woff2) format('woff2');
+}
+
+/* Global styles */
 body {
-  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  line-height: 1.6;
   font-size: 14px;
-  color: #000;
+  background-color: #f9f9f9;
   margin: 0;
-  padding: 20px;
-  background: #fff;
-  line-height: 1.5;
+  padding: 0 20px;
 }
 
 h1 {
   text-align: center;
-  font-weight: bold;
-  font-size: 24px;
-  margin-bottom: 30px;
+  font-size: 26px;
+  margin-top: 40px;
+  font-weight: 700;
+}
+
+h2.heading {
+  font-size: 22px;
+  font-weight: 700;
 }
 
 a {
   color: #1772d0;
   text-decoration: none;
 }
+
 a:hover,
 a:focus {
   color: #f09228;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
+/* Publication layout styles */
 .publications-container {
   max-width: 900px;
   margin: 0 auto;
+  padding-bottom: 40px;
 }
 
 .publication {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   gap: 20px;
   padding: 20px 0;
   border-bottom: 1px solid #ddd;
-  align-items: flex-start;
 }
 
 .publication img {
@@ -46,33 +87,56 @@ a:focus {
 
 .pub-text {
   flex: 1;
-  font-size: 1rem;
   color: #000;
+  font-size: 14px;
 }
 
 .pub-text a.title {
   font-weight: bold;
-  color: #000;
+  font-size: 1rem;
   text-decoration: none;
+  color: #000;
 }
+
 .pub-text a.title:hover {
   text-decoration: underline;
 }
 
-.pub-links a {
-  margin-right: 10px;
+.pub-links {
+  margin-top: 4px;
   font-size: 0.9rem;
 }
 
+.pub-links a {
+  margin-right: 10px;
+}
+
+/* Responsive behavior */
 @media (max-width: 600px) {
   .publication {
     flex-direction: column;
     align-items: center;
   }
+
   .publication img {
     margin-bottom: 10px;
   }
+
   .pub-text {
     text-align: center;
   }
+}
+
+/* Optional: Additional helper classes */
+span.name {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+span.papertitle {
+  font-weight: 700;
+}
+
+span.highlight {
+  background-color: #ffffd0;
 }
