@@ -3,6 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <title>Publications</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .publications-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .publication {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .publication img {
+      width: 160px;
+      flex-shrink: 0;
+      border-radius: 4px;
+    }
+
+    .pub-text {
+      flex: 1;
+    }
+
+    .pub-text a.title {
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .pub-text a.title:hover {
+      text-decoration: underline;
+    }
+
+    .pub-links {
+      margin-top: 4px;
+      font-size: 0.9rem;
+    }
+
+    .pub-links a {
+      margin-right: 10px;
+    }
+    .publication, .pub-text, .publications-container {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    }
+
+    @media (max-width: 600px) {
+      .publication {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .publication img {
+        margin-bottom: 10px;
+      }
+
+      .pub-text {
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <h1>Publications</h1>
