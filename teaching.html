@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Supervision & Teaching</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#3b82f6;
+      --glass: rgba(255,255,255,0.03);
+      --gap:16px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071022 0%, #071429 100%);color:#e6eef7}
+    .wrap{max-width:1100px;margin:28px auto;padding:22px}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:4px 0 0;color:var(--muted)}
+    .controls{display:flex;gap:12px;align-items:center}
+    .search{padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:var(--glass);color:inherit}
+    .tag{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.02);cursor:pointer}
+    main{margin-top:20px;display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .content{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px}
+    .sidebar{height:fit-content;padding:18px;background:var(--card);border-radius:12px}
+    .group{margin-bottom:18px}
+    .group h3{margin:0 0 10px;font-size:15px}
+    .entry{padding:10px;border-radius:8px;background:rgba(255,255,255,0.01);display:flex;align-items:flex-start;gap:12px;border-left:4px solid transparent}
+    .entry + .entry{margin-top:10px}
+    .meta{min-width:72px;text-align:right;color:var(--muted);font-size:13px}
+    .title{font-weight:600}
+    .subtitle{font-size:13px;color:var(--muted);margin-top:4px}
+    .count{background:rgba(255,255,255,0.03);padding:4px 8px;border-radius:999px;font-size:12px}
+    .filters{display:flex;flex-direction:column;gap:8px}
+    .small{font-size:13px;color:var(--muted)}
+    .noresults{padding:20px;text-align:center;color:var(--muted)}
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+    @media (max-width:900px){main{grid-template-columns:1fr} .sidebar{order:2}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Supervision &amp; Teaching — VAP Lab</h1>
+        <p class="lead">Overview of supervised or co-supervised projects (Phd, Msc, BSc)</p>
+      </div>
+      <div class="controls">
+        <input id="q" class="search" placeholder="Search title or year..." />
+        <button id="reset" class="tag">Reset</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="content" id="list">
+        <!-- dynamic content -->
+      </section>
+
+      <aside class="sidebar">
+        <div class="filters">
+          <div class="small">Filters</div>
+          <label class="small"><input type="checkbox" data-kind="PhD" checked/> PhD Projects</label>
+          <label class="small"><input type="checkbox" data-kind="MasterThesis" checked/> Master’s thesis</label>
+          <label class="small"><input type="checkbox" data-kind="Master" checked/> Master’s projects</label>
+          <label class="small"><input type="checkbox" data-kind="BachelorThesis" checked/> Bachelor’s thesis</label>
+          <label class="small"><input type="checkbox" data-kind="Bachelor" checked/> Bachelor’s projects</label>
+        </div>
+        <hr style="margin:12px 0;border-color:rgba(255,255,255,0.03)"/>
+        <div class="small">Quick stats</div>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px">
+          <div class="count" id="stat-count"><strong>— total projects</strong></div>
+          <div class="count" id="stat-students"><strong>— students</strong></div>
+          <div class="count" id="stat-phd">— PhDs</div>
+          <div class="count" id="stat-masters-thesis">— Master’s Theses</div>
+          <div class="count" id="stat-masters-projects">— Master’s Projects</div>
+          <div class="count" id="stat-bachelors-thesis">— Bachelor’s Theses</div>
+          <div class="count" id="stat-bachelors-projects">— Bachelor’s Projects</div>
+        </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // Data: each item has year, title, kind, programme, semester, count (if present)
+    const items = [
+      {year:2024,title:'Computer vision in underwater environments',kind:'PhD',programme:'VAP Lab',semester:'PhD',count:1},
+      {year:2018,title:'Comparing a virtual agent\'s behaviour\'s effect on user learning and engagement',kind:'Master',programme:'Medialogy',semester:'1st semester',count:3},
+      {year:2023,title:'A system for synthetic machine learning data synthesis in challenging unverwater environments',kind:'Master',programme:'Medialogy',semester:'1st semester',count:5},
+      {year:2022,title:'Salmon counting by comparison of line logic, contour tracking, and yolov5/deepsort solutions',kind:'Master',programme:'AVS',semester:'1st semester',count:4},
+      {year:2023,title:'Rud-pt: a realistic underwater dataset with pose tracking',kind:'Master',programme:'Robotics',semester:'1st semester',count:3},
+      {year:2018,title:'Benthos classification: computer vision',kind:'Master',programme:'VGIS',semester:'2nd semester',count:2},
+      {year:2019,title:'Detecting cars in lidar point clouds using density based clustering and support vector machine',kind:'Master',programme:'VGIS',semester:'3rd semester',count:1},
+      {year:2019,title:'Zebrafish occlusion detection',kind:'MasterThesis',programme:'VGIS',semester:'Master\'s thesis',count:1},
+      {year:2019,title:'Turbidity measurement based on computer vision',kind:'MasterThesis',programme:'VGIS',semester:'Master\'s thesis',count:1},
+      {year:2020,title:'Classification and localization of sea animals in brackish waters with diverse visibility',kind:'MasterThesis',programme:'VGIS',semester:'Master\'s thesis',count:1},
+      {year:2021,title:'Regression based multi‑view zebrafish tracking',kind:'MasterThesis',programme:'VGIS',semester:'Master\'s thesis',count:1},
+      {year:2020,title:'Deep object descriptions for mot',kind:'MasterThesis',programme:'Robotics',semester:'Master\'s thesis',count:1},
+      {year:2025,title:'Fish re‑identification in electronic monitoring systems with conveyor belts',kind:'MasterThesis',programme:'DTU Aqua',semester:'Master\'s thesis',count:1},
+      {year:2017,title:'Bubble destroyers: visual computing - human perception',kind:'Bachelor',programme:'Medialogy',semester:'3rd semester',count:6},
+      {year:2018,title:'Augmenting tabletop maps through pervasive gaming and computer',kind:'Bachelor',programme:'Medialogy',semester:'3rd semester',count:5},
+      {year:2018,title:'Interactive learning interface',kind:'Bachelor',programme:'Medialogy',semester:'3rd semester',count:6},
+      {year:2019,title:'Digitizing the beer pong experience for university students using computer vision',kind:'Bachelor',programme:'Medialogy',semester:'3rd semester',count:5},
+      {year:2019,title:'Teaching history through an interactive table',kind:'Bachelor',programme:'Medialogy',semester:'3rd semester',count:5},
+      {year:2018,title:'Developing an interactive learning-table with a tangible programming user interface',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:4},
+      {year:2018,title:'Teaching computational thinking through interactive gameplay and computer vision',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:3},
+      {year:2019,title:'Visualizing deer activity using deep learning',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:3},
+      {year:2020,title:'Finding and communicating underwater events',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:4},
+      {year:2021,title:'Aiding the marine biologist workflow using a digital fish school simulation',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:6},
+      {year:2025,title:'Computer vision for fouling assessment',kind:'Bachelor',programme:'Medialogy',semester:'Bachelor\'s thesis',count:5},
+      {year:2025,title:'Detection and classification of fouling using computer vision',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:4},
+      {year:2018,title:'Reading analogue presure gauges using digital image processing',kind:'BachelorThesis',programme:'IPS/Comtech',semester:'Bachelor\'s thesis',count:3},
+      {year:2019,title:'Automated identification of damaged shackles',kind:'BachelorThesis',programme:'IPS/Comtech',semester:'Bachelor\'s thesis',count:2},
+      {year:2021,title:'Analysis and summarisation of football games using computer vision',kind:'BachelorThesis',programme:'IPS/Comtech',semester:'Bachelor\'s thesis',count:3},
+      {year:2024,title:'Underwater 3d reconstruction',kind:'BachelorThesis',programme:'IPS/Comtech',semester:'Bachelor\'s thesis',count:4},
+      {year:2020,title:'Water number analyzer',kind:'BachelorThesis',programme:'Robotics',semester:'Bachelor\'s thesis',count:3}
+    ];
+
+    const listEl = document.getElementById('list');
+    const qEl = document.getElementById('q');
+    const resetEl = document.getElementById('reset');
+
+    // priority for sorting kinds
+    const kindPriority = {PhD:1, MasterThesis:2, BachelorThesis:3, Master:4, Bachelor:5, Other:6};
+
+    function updateStats(filteredItems) {
+      const counts = {
+        phd: 0,
+        mastersThesis: 0,
+        bachelorsThesis: 0,
+        mastersProjects: 0,
+        bachelorsProjects: 0,
+      };
+
+      let totalStudents = 0;
+    
+      filteredItems.forEach(item => {
+        totalStudents += item.count || 1;
+        switch(item.kind){
+          case "PhD": counts.phd++; break;
+          case "MasterThesis": counts.mastersThesis++; break;
+          case "BachelorThesis": counts.bachelorsThesis++; break;
+          case "Master": counts.mastersProjects++; break;
+          case "Bachelor": counts.bachelorsProjects++; break;
+        }
+      });
+    
+      document.getElementById("stat-count").innerHTML = "<strong>" + filteredItems.length + "</strong> total projects";
+      document.getElementById("stat-students").innerHTML = "<strong>" + totalStudents + "</strong> students";
+      const years = [...new Set(filteredItems.map(i => i.year))].sort((a,b)=>b-a);
+      document.getElementById("stat-phd").textContent = counts.phd + " PhD projects";
+      document.getElementById("stat-masters-thesis").textContent = counts.mastersThesis + " Master’s Theses";
+      document.getElementById("stat-bachelors-thesis").textContent = counts.bachelorsThesis + " Bachelor’s Theses";
+      document.getElementById("stat-masters-projects").textContent = counts.mastersProjects + " Master’s Projects";
+      document.getElementById("stat-bachelors-projects").textContent = counts.bachelorsProjects + " Bachelor’s Projects";
+    }
+
+    function render(filterText='', kinds=new Set(['PhD','MasterThesis','BachelorThesis','Master','Bachelor','Other'])){
+    const text = filterText.trim().toLowerCase();
+    const grouped = {};
+    const filtered = items.filter(it=>{
+    if(!kinds.has(it.kind)) return false;
+    if(!text) return true;
+    return (''+it.year).includes(text) || it.title.toLowerCase().includes(text) || it.programme.toLowerCase().includes(text) || (it.semester||'').toLowerCase().includes(text);
+    }).sort((a,b)=>{
+    // sort by priority first
+    const pa = kindPriority[a.kind] || 99;
+    const pb = kindPriority[b.kind] || 99;
+    if(pa!==pb) return pa-pb;
+    // then by programme alphabetically
+    const prog = a.programme.localeCompare(b.programme);
+    if(prog!==0) return prog;
+    // then by year desc
+    return b.year - a.year;
+    });
+
+    filtered.forEach(it=>{
+    const key = it.programme + (it.semester? (' — '+it.semester):'');
+    if(!grouped[key]) grouped[key]=[];
+    grouped[key].push(it);
+    });
+
+    listEl.innerHTML='';
+    if(filtered.length===0){ listEl.innerHTML='<div class="noresults">No projects match your query.</div>'; return }
+
+    for(const [group, arr] of Object.entries(grouped)){
+    const g = document.createElement('div'); g.className='group';
+    const h3 = document.createElement('h3'); h3.textContent = group; g.appendChild(h3);
+    arr.forEach(it=>{
+    const e = document.createElement('div'); e.className='entry';
+    const meta = document.createElement('div'); meta.className='meta'; meta.innerHTML = `<div>${it.year}</div><div class="small">${it.kind}</div>`;
+    const body = document.createElement('div');
+    const t = document.createElement('div'); t.className='title'; t.textContent = it.title;
+    const s = document.createElement('div'); s.className='subtitle'; s.textContent = (it.count?('Students: '+it.count):'');
+    body.appendChild(t); if(s.textContent) body.appendChild(s);
+    e.appendChild(meta); e.appendChild(body);
+    g.appendChild(e);
+    });
+    listEl.appendChild(g);
+    }
+
+    updateStats(filtered)
+    }
+
+
+    document.querySelectorAll('.sidebar input[type=checkbox]').forEach(cb=>{
+    cb.addEventListener('change',()=>{
+    const kinds = new Set();
+    document.querySelectorAll('.sidebar input[type=checkbox]').forEach(c=>{ if(c.checked) kinds.add(c.dataset.kind) });
+    if(kinds.has('Master')){ kinds.add('Master'); }
+    render(qEl.value, kinds);
+    });
+    });
+
+
+    qEl.addEventListener('input',()=>{
+    const kinds = new Set(); document.querySelectorAll('.sidebar input[type=checkbox]').forEach(c=>{ if(c.checked) kinds.add(c.dataset.kind) });
+    render(qEl.value, kinds);
+    });
+
+    resetEl.addEventListener('click',()=>{ qEl.value=''; document.querySelectorAll('.sidebar input[type=checkbox]').forEach(c=>c.checked=true); render(); });
+
+    // initial render
+    render();
+  </script>
+</body>
+</html>
