@@ -1,180 +1,264 @@
-<!DOCTYPE HTML>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
   <title>Malte Pedersen</title>
-  
   <meta name="author" content="Malte Pedersen">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#3b82f6;
+      --glass: rgba(255,255,255,0.03);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      background:linear-gradient(180deg,#071022 0%, #071429 100%);
+      color:#e6eef7;
+    }
+    .wrap{
+      max-width:900px;
+      margin:40px auto;
+      padding:0 20px;
+    }
+
+    /* --- Header --- */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:24px;
+    }
+    .intro{
+      flex:1;
+      min-width:260px;
+    }
+    h1{font-size:26px;margin:0 0 8px;}
+    p.lead{
+      color:var(--muted);
+      margin:6px 0 12px;
+      line-height:1.5;
+    }
+    header img{
+      width:180px;
+      border-radius:50%;
+      object-fit:cover;
+      box-shadow:0 0 20px rgba(0,0,0,0.3);
+      flex-shrink:0;
+    }
+    .links a{
+      color:var(--muted);
+      text-decoration:none;
+    }
+    .links a:hover{color:var(--accent);}
+    nav{
+      margin-top:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      font-weight:600;
+    }
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+    }
+    nav a:hover{color:var(--accent);}
+
+    /* --- Content --- */
+    main{
+      margin-top:40px;
+      display:flex;
+      flex-direction:column;
+      gap:40px;
+    }
+    section{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:24px;
+    }
+    h2{
+      font-size:18px;
+      margin:0 0 16px;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      padding-bottom:6px;
+    }
+
+    /* --- What's New --- */
+    .updates table{width:100%;border-collapse:collapse;}
+    .updates td{padding:8px 6px;vertical-align:top;}
+    .updates strong{color:var(--accent);}
+
+    /* --- Publications --- */
+    .pub{
+      display:flex;
+      gap:20px;
+      margin-bottom:20px;
+      align-items:flex-start;
+    }
+    .pub img{
+      width:200px;
+      border-radius:10px;
+      object-fit:cover;
+      flex-shrink:0;
+    }
+    .pub-info{flex:1;}
+    .pub-info a{color:#e6eef7;text-decoration:none;}
+    .pub-info a:hover{color:var(--accent);}
+    .pub-links{
+      margin-top:4px;
+      font-size:14px;
+    }
+    .pub-links a{
+      color:var(--muted);
+      text-decoration:none;
+      margin-right:8px;
+    }
+    .pub-links a:hover{color:var(--accent);}
+    footer{
+      margin-top:30px;
+      text-align:right;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media(max-width:700px){
+      header{flex-direction:column;align-items:center;text-align:center;}
+      header img{width:150px;}
+      nav{justify-content:center;}
+    }
+  </style>
 </head>
 
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr style="padding:0px">
-      <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:63%;vertical-align:middle">
-              <p style="text-align:center">
-                <span class="name">Malte Pedersen</span>
-              </p>
-              <p>I am a Postdoctoral Researcher in the <a href="https://vap.aau.dk/">Visual Analysis and Perception Laboratory</a> at <a href="https://www.en.aau.dk/">Aalborg University</a> and an affiliated member of the <a href="https://www.aicentre.dk/">Pioneer Centre for Artificial Intelligence</a>. I am mainly working on computer vision problems related to marine environments.
-              </p>
-              <p style="text-align:center">
-                <a href="mailto:mape@create.aau.dk">Email</a> &nbsp/&nbsp
-                <a href="https://scholar.google.com/citations?user=RREDgy4AAAAJ&hl=en">Google Scholar</a> &nbsp/&nbsp
-                <a href="https://github.com/mapeAAU/">Github</a> &nbsp/&nbsp
-                <a href="https://www.linkedin.com/in/malte-pedersen/">LinkedIn</a> &nbsp/&nbsp
-                <!-- <a href="images/JBH_ProfilePic.jpg">Headshot</a> <!-- &nbsp/&nbsp
-                  <a href="data/JonBarron-CV.pdf">CV</a>  -->
-              </p>
-		    <nav style="text-align:center; font-weight: bold">
-			    <a href="index.html">Home</a> &nbsp/&nbsp 
-			    <a href="publications.html">Publications</a> &nbsp/&nbsp
-			    <a href="teaching.html">Teaching</a> &nbsp/&nbsp
-			    <a href="grants.html">Grants</a> &nbsp/&nbsp
-			    <a href="service.html">Academic service</a>
-		    </nav>
-            </td>
-            <td style="padding:2.5%;width:40%;max-width:40%">
-              <a href="images/JBH_ProfilePic.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="malte_circle.png" class="hoverZoomLink"></a>
-            </td>
-          </tr>
-        </tbody></table>
+  <div class="wrap">
+    <header>
+      <div class="intro">
+        <h1>Malte Pedersen</h1>
+        <p class="lead">
+          Postdoctoral Researcher in the <a href="https://vap.aau.dk/">Visual Analysis and Perception Lab</a> at 
+          <a href="https://www.en.aau.dk/">Aalborg University</a>, and affiliated with the 
+          <a href="https://www.aicentre.dk/">Pioneer Centre for Artificial Intelligence</a>.<br>
+          My research focuses on computer vision problems in marine environments.
+        </p>
+        <p class="links">
+          <a href="mailto:mape@create.aau.dk">Email</a> &nbsp;/&nbsp;
+          <a href="https://scholar.google.com/citations?user=RREDgy4AAAAJ&hl=en">Google Scholar</a> &nbsp;/&nbsp;
+          <a href="https://github.com/mapeAAU/">GitHub</a> &nbsp;/&nbsp;
+          <a href="https://www.linkedin.com/in/malte-pedersen/">LinkedIn</a>
+        </p>
+        <nav>
+          <a href="publications.html">Publications</a>
+          <a href="teaching.html">Teaching</a>
+        </nav>
+      </div>
+      <img src="malte_circle.png" alt="profile photo">
+    </header>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <h2 class="heading">What's New</h2>
-          <br>          
+    <main>
+      <section class="updates">
+        <h2>What's New</h2>
+        <table>
           <tr>
-            <td><strong>[Sep 2025]</strong></td>
-            <td>The Alan Turing Institute-Nordics AI Workshop: Maritime, Security & Arctic Research</td>
-            <td>Oral presentation and paneldebate - Computer Vision & Environmental Monitoring</td>
-          </tr> 
+            <td><strong>[Nov25]</strong></td>
+            <td><a href="https://ais25.eu/">AI in Science Summit</a>, <i>Copenhagen</i></td>
+            <td>Poster presentation</td>
+          </tr>
           <tr>
-            <td><strong>[Jul 2025]</strong></td>
+            <td><strong>[Oct25]</strong></td>
+            <td><a href="https://vap.aau.dk/marinevision/">Joint Workshop on Marine Vision</a> at <a href="https://iccv.thecvf.com/">ICCV</a>, <i>Honolulu</i></td>
+            <td>Primary organizer</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><a href="https://danfish.com/">DanFish International</a>, <i>Aalborg</i></td>
+            <td>Poster presentation</td>
+          </tr>
+          <tr>
+            <td><strong>[Sep25]</strong></td>
+            <td><a href="https://www.nora.ai/news/2025/strengthening-nordic-uk-ai-partnerships-the-second.html">The Alan Turing Institute–Nordics AI Workshop:<br> Maritime, Security & Arctic Research</a>, <i>Oslo</i></td>
+            <td>Oral presentation and panel debate</td>
+          </tr>
+          <tr>
+            <td><strong>[Jul25]</strong></td>
             <td>This page is alive.</td>
-          </tr>    
+          </tr>
+        </table>
+      </section>
 
-        </tbody></table>
+      <section>
+        <h2>Highlighted Publications</h2>
+        
+        <div class="pub">
+          <img src="images/AutoFish.jpg" alt="AUTOFISH teaser">
+          <div class="pub-info">
+            <a href="https://vap.aau.dk/autofish/"><strong>AutoFish: Dataset and Benchmark for Fine-grained Analysis of Fish</strong></a><br>
+            <em>WACVW</em>, 2025<br>
+            <span>Stefan H. Bengtson, Daniel Lehotský, Vasiliki Ismiroglou, Niels Madsen, Thomas B. Moeslund, <strong> Malte Pedersen </strong></span>
+            <div class="pub-links">
+              <a href="https://vap.aau.dk/autofish/">project</a> /
+              <a href="https://arxiv.org/abs/2501.03767">arXiv</a> /
+              <a href="https://huggingface.co/datasets/vapaau/autofish">dataset</a>
+            </div>
+            <p>We propose a publicly available, fully annotated instance segmentation and re-identification dataset of similarly looking fish.</p>
+          </div>
+        </div>
 
-
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <h2 class="heading">Highlighted publications</h2>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:top">
-              <div class="one">
-                <img src='images/motcom_teaser.jpg' width="160">
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:top">
-              <a href="https://vap.aau.dk/motcom/">
-                <span class="papertitle">MOTCOM: The Multi-Object Tracking Dataset Complexity Metric</span>
-              </a>
-              <br>
-              <strong>Malte Pedersen</strong>,
-              Joakim Bruslund Haurum,
-              Patrick Dendorfer,
-              Thomas B. Moeslund
-              <br>
-              <em>ECCV</em>, 2022
-              <br>
-              <a href="https://vap.aau.dk/motcom/">project page</a>
-              /
-              <a href="https://arxiv.org/abs/2207.10031">arXiv</a>
-              /
+        <div class="pub">
+          <img src="images/motcom_teaser.jpg" alt="MOTCOM teaser">
+          <div class="pub-info">
+            <a href="https://vap.aau.dk/motcom/"><strong>MOTCOM: The Multi-Object Tracking Dataset Complexity Metric</strong></a><br>
+            <em>ECCV</em>, 2022<br>
+            <span><strong>Malte Pedersen</strong>, Joakim Bruslund Haurum, Patrick Dendorfer, Thomas B. Moeslund</span>
+            <div class="pub-links">
+              <a href="https://vap.aau.dk/motcom/">project</a> /
+              <a href="https://arxiv.org/abs/2207.10031">arXiv</a> /
               <a href="https://github.com/JoakimHaurum/MOTCOM">code</a>
-              /
-              <a href="data/MOTCOM2022.bib">bibtex</a>
-              <p></p>
-              <p>
-                We propose a set of metrics to determine the complexity of Multi-Object Tracking datasets along three axes: Motion, Appearance, and Occlusion.
-              </p>
-            </td>
-          </tr>      
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:top">
-              <div class="one">
-                <img src='images/cvpr20_teaser.JPG' width="160">
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:top">
-              <a href="https://vap.aau.dk/3d-zef/">
-                <span class="papertitle">3D-ZeF: A 3D Zebrafish Tracking Benchmark Dataset</span>
-              </a>
-              <br>
-              <strong>Malte Pedersen</strong>*, 
-              Joakim Bruslund Haurum*,
-              Stefan Hein Bengtson,
-              Thomas B. Moeslund
-              <br>
-              <em>CVPR</em>, 2020
-              <br>
-              <a href="https://vap.aau.dk/3d-zef/">project page</a>
-              /
-              <a href="https://arxiv.org/abs/2006.08466">arXiv</a>
-              /
-              <a href="https://bitbucket.org/aauvap/3d-zef">code</a>
-              /
+            </div>
+            <p>We propose a set of metrics to determine the complexity of Multi-Object Tracking datasets along three axes: Motion, Appearance, and Occlusion.</p>
+          </div>
+        </div>
+
+        <div class="pub">
+          <img src="images/cvpr20_teaser.JPG" alt="3D-ZeF teaser">
+          <div class="pub-info">
+            <a href="https://vap.aau.dk/3d-zef/"><strong>3D-ZeF: A 3D Zebrafish Tracking Benchmark Dataset</strong></a><br>
+            <em>CVPR</em>, 2020<br>
+            <span><strong>Malte Pedersen</strong>*, Joakim Bruslund Haurum*, Stefan Hein Bengtson, Thomas B. Moeslund</span>
+            <div class="pub-links">
+              <a href="https://vap.aau.dk/3d-zef/">project</a> /
+              <a href="https://arxiv.org/abs/2006.08466">arXiv</a> /
+              <a href="https://bitbucket.org/aauvap/3d-zef">code</a> /
               <a href="https://motchallenge.net/data/3D-ZeF20">dataset</a>
-              /
-              <a href="data/CVPR2020.bib">bibtex</a>
-              <p></p>
-              <p>
-                We present a dataset for 3D multi-object tracking of zebrafish, captured using an off-the-shelf setup. 
-              </p>
-            </td>
-          </tr>
+            </div>
+            <p>We present a dataset for 3D multi-object tracking of zebrafish, captured using an off-the-shelf setup.</p>
+          </div>
+        </div>
 
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:top">
-              <div class="one">
-                <img src='images/cvpr19_brack_teaser.JPG' width="160">
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:top">
-              <a href="https://openaccess.thecvf.com/content_CVPRW_2019/papers/AAMVEM/Pedersen_Detection_of_Marine_Animals_in_a_New_Underwater_Dataset_with_CVPRW_2019_paper.pdf">
-                <span class="papertitle">Detection of Marine Animals in a New Underwater Dataset with Varying Visibility</span>
-              </a>
-              <br>
-              <strong>Malte Pedersen</strong>,
-              Joakim Bruslund Haurum,
-              Rikke Gade,
-              Thomas B. Moeslund,
-              Niels Madsen
-              <br>
-              <em>CVPR Workshops</em>, 2019
-              <br>
+        <div class="pub">
+          <img src="images/cvpr19_brack_teaser.JPG" alt="Brackish dataset teaser">
+          <div class="pub-info">
+            <a href="https://openaccess.thecvf.com/content_CVPRW_2019/papers/AAMVEM/Pedersen_Detection_of_Marine_Animals_in_a_New_Underwater_Dataset_with_CVPRW_2019_paper.pdf"><strong>Detection of Marine Animals in a New Underwater Dataset with Varying Visibility</strong></a><br>
+            <em>CVPR Workshops</em>, 2019<br>
+            <span><strong>Malte Pedersen</strong>, Joakim Bruslund Haurum, Rikke Gade, Thomas B. Moeslund, Niels Madsen</span>
+            <div class="pub-links">
               <a href="https://www.kaggle.com/datasets/aalborguniversity/brackish-dataset">dataset</a>
-              /
-              <a href="data/CVPR2019_Brackish.bib">bibtex</a>
-              <p></p>
-              <p>
-                We present a new publicly available underwater dataset with annotated image sequences of fish, crabs, and starfish captured in brackish water with varying visibility.
-              </p>
-            </td>
-          </tr>
+            </div>
+            <p>We present a publicly available underwater dataset with annotated image sequences of fish, crabs, and starfish captured in brackish water with varying visibility.</p>
+          </div>
+        </div>
+      </section>
 
-          <table width="100%" align="left" border="0" cellpadding="20"><tbody>            
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:0px">
-                <br>
-                <p style="text-align:right;font-size:small;">
-                  This website layout was adapted from <a href="https://github.com/jonbarron/website">Jon Barron's template</a>.
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-        </td>
-      </tr>
-    </table>
-
-  </body>
-
+    </main>
+  </div>
+</body>
 </html>

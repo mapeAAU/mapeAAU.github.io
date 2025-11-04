@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Publications</title>
+<style>
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#3b82f6;
+  --glass: rgba(255,255,255,0.03);
+  --gap:16px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color-scheme: dark;
+}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,#071022 0%, #071429 100%);color:#e6eef7}
+.wrap{max-width:1100px;margin:28px auto;padding:22px}
+header{display:flex;gap:16px;align-items:center;justify-content:space-between}
+h1{margin:0;font-size:20px}
+p.lead{margin:4px 0 0;color:var(--muted)}
+.controls{display:flex;gap:12px;align-items:center}
+.search{padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:var(--glass);color:inherit}
+main{margin-top:20px;display:grid;grid-template-columns:1fr 320px;gap:20px}
+.content{display:flex;flex-direction:column;gap:12px}
+.sidebar{height:fit-content;padding:18px;background:var(--card);border-radius:12px}
+.pub-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.pub-links .btn{padding:6px 12px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-size:13px;transition:0.2s}
+.pub-links .btn:hover{background:#2563eb}
+.publication{display:flex;gap:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px}
+.pub-img{width:200px;border-radius:8px;object-fit:cover}
+.pub-text{flex:1;display:flex;flex-direction:column}
+.title{font-weight:600;font-size:16px;margin-bottom:4px}
+.authors{font-size:14px;color:var(--muted);margin-bottom:4px}
+.counts{margin-bottom:12px}
+.counts div{font-size:14px;margin-bottom:4px}
+.noresults{padding:20px;text-align:center;color:var(--muted)}
+@media (max-width:900px){main{grid-template-columns:1fr} .sidebar{order:2}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <h1>Publications</h1>
+    <p class="lead">Malte Pedersen</p>
+  </div>
+  <div class="controls">
+    <input type="text" class="search" placeholder="Search publications..." id="search">
+  </div>
+</header>
+<main>
+  <div class="content" id="pub-container"></div>
+  <div class="sidebar">
+    <h3>Quick Stats</h3>
+    <div class="counts">
+      <div>Publications: <strong id="total-pubs">0</strong></div>
+      <div>Authors: <strong id="total-authors">0</strong></div>
+    </div>
+  </div>
+</main>
+</div>
+
+<script>
+// Array of publications
+const publications = [
+  {
+    year: 2025,
+    title: "Sea-ing Through Scattered Rays: Revisiting the Image Formation Model for Realistic Underwater Image Generation",
+    authors: "Vasiliki Ismiroglou, <strong> Malte Pedersen </strong>, Stefan H. Bengtson, Andreas Aakerberg, Thomas B. Moeslund",
+    type: "Workshop",
+    venue: "ICCV Joint Workshop on Marine Vision",
+    img: "images/ICCVW2025_seaing.jpg",
+    link: "https://vbn.aau.dk/en/publications/sea-ing-through-scattered-rays-revisiting-the-image-formation-mod",
+    links: {
+      project: "https://vap.aau.dk/sea-ing-through-scattered-rays/",
+      arxiv: "https://arxiv.org/pdf/2509.15011?",
+      code: "https://github.com/vismiroglou/STSR",
+      dataset: "https://huggingface.co/datasets/vapaau/THEBUCKETv1",
+      bibtex: ""
+    }
+  },
+  {
+    year: 2025,
+    title: "Eye in the Sky for Sub-Tidal Seagrass Mapping: Leveraging Unsupervised Domain Adaptation with SegFormer for Multi-Source and Multi-Resolution Aerial Imagery",
+    authors: "Satish Pawar, Aris Thomasberger, Stefan Hein Bengtson, <strong> Malte Pedersen </strong>, Karen Timmermann",
+    type: "Journal",
+    venue: "Remote Sensing",
+    img: "images/mdpi2025.jpg",
+    link: "https://www.mdpi.com/2072-4292/17/14/2518",
+    links: {
+      bibtex: "data/MDPI2025.bib"
+    }
+  },
+  {
+    year: 2025,
+    title: "Uncovering Anomalous Events for Marine Environmental Monitoring via Visual Anomaly Detection",
+    authors: "Laura Weihl, Stefan Hein Bengtson, Nejc Novak, <strong> Malte Pedersen </strong>",
+    type: "Workshop",
+    venue: "ICCV Joint Workshop on Marine Vision",
+    img: "images/ICCVW2025_anomaly.jpg",
+    link: "https://vbn.aau.dk/en/publications/uncovering-anomalous-events-for-marine-environmental-monitoring-v",
+    links: {
+      project: "https://vap.aau.dk/aura/",
+      code: "",
+      dataset: "",
+      bibtex: "data/ICCVW2025_Anomaly.bib"
+    }
+  },
+  {
+    year: 2025,
+    title: "AutoFish: Dataset and Benchmark for Fine-grained Analysis of Fish",
+    authors: "Stefan H. Bengtson, Daniel Lehotský, Vasiliki Ismiroglou, Niels Madsen, Thomas B. Moeslund, <strong> Malte Pedersen </strong>",
+    type: "Workshop",
+    venue: "WACV Workshop on Maritime Computer Vision",
+    img: "images/AutoFish.jpg",
+    link: "https://openaccess.thecvf.com/content/WACV2025W/MaCVi/papers/Bengtson_AutoFish_Dataset_and_Benchmark_for_Fine-grained_Analysis_of_Fish_WACVW_2025_paper.pdf",
+    links: {
+      project: "https://vap.aau.dk/autofish/",
+      arxiv: "https://arxiv.org/abs/2501.03767",
+      code: "https://bitbucket.org/autofish/autofish_training_release/src/main",
+      dataset: "https://huggingface.co/datasets/vapaau/autofish",
+      bibtex: "data/WACVW2025.bib"
+    }
+  },
+  {
+    year: 2024,
+    title: "Underwater Uncertainty: A Multi-annotator Image Dataset for Benthic Habitat Classification",
+    authors: "Galadrielle Humblot-Renaux, Anders S. Johansen, Jonathan E. Schmidt, Amanda F. Irlind, Niels Madsen, Thomas B. Moeslund, <strong> Malte Pedersen </strong>",
+    type: "Workshop",
+    venue: "ECCV Computer Vision for Ecology Workshop",
+    img: "images/JAMBO.jpg",
+    link: "https://link.springer.com/chapter/10.1007/978-3-031-92387-6_6",
+    links: {
+      project: "https://vap.aau.dk/jambo/",
+      openreview: "https://openreview.net/pdf?id=bHEEzYqn3n",
+      dataset: "https://huggingface.co/datasets/vapaau/jambo",
+      bibtex: "data/ECCVW2024"
+    }
+  },
+  {
+    year: 2023,
+    title: "Finding Nemo’s Giant Cousin: Keypoint Matching for Robust Re-identification of Giant Sunfish",
+    authors: "<strong> Malte Pedersen </strong>, Marianne Nyegaard, Thomas B. Moeslund",
+    type: "Journal",
+    venue: "JMSE",
+    img: "images/JMSE2023.jpg",
+    link: "https://www.mdpi.com/2077-1312/11/5/889",
+    links: {
+      bibtex: "data/JMSE2023.bib"
+    }
+  },
+  {
+    year: 2023,
+    title: "BrackishMOT: The Brackish Multi-object Tracking Dataset",
+    authors: "<strong> Malte Pedersen </strong>, Daniel Lehotský, Ivan Nikolov, Thomas B. Moeslund",
+    type: "Conference",
+    venue: "SCIA",
+    img: "images/scia2023.jpg",
+    link: "https://link.springer.com/chapter/10.1007/978-3-031-31435-3_2",
+    links: {
+      arxiv: "https://arxiv.org/abs/2302.10645",
+      dataset: "https://www.kaggle.com/datasets/maltepedersen/brackishmot",
+      bibtex: "data/SCIA2023.bib"
+    }
+  },
+  {
+    year: 2022,
+    title: "MOTCOM: The Multi-Object Tracking Dataset Complexity Metric",
+    authors: "<strong> Malte Pedersen </strong>, Joakim B. Haurum, Patrick Dendorfer, Thomas B. Moeslund",
+    type: "Workshop",
+    venue: "ECCV",
+    img: "images/motcom_teaser.jpg",
+    link: "https://link.springer.com/chapter/10.1007/978-3-031-20074-8_2",
+    links: {
+      project: "https://vap.aau.dk/motcom/",
+      arxiv: "https://arxiv.org/pdf/2207.10031",
+      code: "https://github.com/JoakimHaurum/MOTCOM",
+      bibtex: "data/MOTCOM2022.bib"
+    }
+  },
+  {
+    year: 2022,
+    title: "Re-Identification of Giant Sunfish using Keypoint Matching",
+    authors: "<strong> Malte Pedersen </strong>, Joakim Bruslund Haurum, Thomas B. Moeslund, Marianne Nyegaard",
+    type: "Journal",
+    venue: "NLDL",
+    img: "images/nldl_teaser.JPG",
+    link: "https://septentrio.uit.no/index.php/nldl/article/view/6234/6504",
+    links: {
+      bibtex: "data/NLDL2022.bib"
+    }
+  },
+  {
+    year: 2020,
+    title: "Water Level Estimation in Sewer Pipes using Deep Convolutional Neural Networks",
+    authors: "Joakim Bruslund Haurum, Chris H. Bahnsen, <strong> Malte Pedersen </strong>, Thomas B. Moeslund",
+    type: "Journal",
+    venue: "Water",
+    img: "images/water_teaser.jpg",
+    link: "https://www.mdpi.com/2073-4441/12/12/3412",
+    links: {
+      code: "https://bitbucket.org/aauvap/waterlevelestimation",
+      bibtex: "data/Water2020.bib"
+    }
+  },
+  {
+    year: 2020,
+    title: "3D-ZeF: A 3D Zebrafish Tracking Benchmark Dataset",
+    authors: "<strong> Malte Pedersen </strong>, Joakim B. Haurum, Stefan H. Bengtson, Thomas B. Moeslund",
+    type: "Conference",
+    venue: "CVPR",
+    img: "images/cvpr20_teaser.JPG",
+    link: "https://openaccess.thecvf.com/content_CVPR_2020/papers/Pedersen_3D-ZeF_A_3D_Zebrafish_Tracking_Benchmark_Dataset_CVPR_2020_paper.pdf",
+    links: {
+      project: "https://vap.aau.dk/3d-zef/",
+      code: "https://github.com/mapeAAU/3D-ZeF",
+      dataset: "https://motchallenge.net/data/3D-ZeF20",
+      bibtex: "data/CVPR2020.bib"
+    }
+  },
+  {
+    year: 2020,
+    title: "Re-identification of Zebrafish using Metric Learning",
+    authors: "Joakim B. Haurum, Anastasija Karpova, <strong> Malte Pedersen </strong>, Stefan H. Bengtson, Thomas B. Moeslund",
+    type: "Workshop",
+    venue: "WACV Workshop on Deep Learning Methods and Applications for Animal Re-Identification",
+    img: "images/wacvw2020.jpg",
+    links: {
+      code: "https://bitbucket.org/aauvap/zebrafish-re-identification/src/master/",
+      dataset: "https://www.kaggle.com/datasets/aalborguniversity/aau-zebrafish-reid",
+      bibtex: "data/WACVW2020.bib"
+    }
+  },
+  {
+    year: 2019,
+    title: "Reading Circular Analogue Gauges Using Digital Image Processing",
+    authors: "Jakob S. Lauridsen, Julius A. G. Graasmé, <strong> Malte Pedersen </strong>, David G. Jensen, Søren Holm, Thomas B. Moeslund",
+    type: "Conference",
+    venue: "VISAPP",
+    img: "images/visapp2019.jpg",
+    links: {
+      bibtex: "data/VISAPP2019.bib"
+    }
+  },
+  {
+    year: 2019,
+    title: "Detection of Marine Animals in a New Underwater Dataset with Varying Visibility",
+    authors: "<strong> Malte Pedersen </strong>, Joakim B. Haurum, Rikke Gade, Thomas B. Moeslund, Niels Madsen",
+    type: "Workshop",
+    venue: "CVPR Automated Analysis of Marine Video for Environmental Monitoring Workshop",
+    img: "images/cvpr19_brack_teaser.JPG",
+    links: {
+      project: "https://vap.aau.dk/the-brackish-dataset/",
+      code: "https://bitbucket.org/aauvap/brackish-dataset/src/master/",
+      dataset: "https://www.kaggle.com/datasets/aalborguniversity/brackish-dataset",
+      bibtex: "data/CVPRW2019.bib"
+    }
+  },
+  {
+    year: 2018,
+    title: "Reaching Behind Specular Highlights by Registration of Two Images of Broiler Viscera",
+    authors: "Anders Jørgensen, <strong> Malte Pedersen </strong>, Rikke Gade, Jens Fagertun, Thomas B. Moeslund",
+    type: "Workshop",
+    venue: "ACCV Workshop",
+    img: "images/broiler_viscera.JPG",
+    links: {
+      bibtex: "data/ACCVW2018.bib"
+    }
+  },
+  {
+    year: 2018,
+    title: "Camera Calibration for Underwater 3D Reconstruction Based on Ray Tracing Using Snell's Law",
+    authors: "<strong> Malte Pedersen </strong>, Stefan Bengtson, Rikke Gade, Niels Madsen, Thomas B. Moeslund",
+    type: "Workshop",
+    venue: "CVPR Automated Analysis of Marine Video for Environmental Monitoring Workshop",
+    img: "images/cvprw2018.jpg",
+    links: {
+      code: "https://github.com/mapeAAU/underwater_camera_calibration",
+      bibtex: "data/CVPRW2018.bib"
+    }
+  },
+  {
+    year: 2016,
+    title: "Stitching Grid-Wise Atomic Force Microscope Images",
+    authors: "Mathias Vestergaard, Stefan Bengtson, <strong> Malte Pedersen </strong>, Christian Rankl, Thomas B. Moeslund",
+    type: "Conference",
+    venue: "VISAPP",
+    img: "images/visapp2016.jpg",
+    links: {
+      bibtex: "data/VISAPP2016.bib"
+    }
+  }
+];
+
+
+// Render publications
+const container = document.getElementById('pub-container');
+const searchInput = document.getElementById('search');
+
+function renderPubs(filter="") {
+  container.innerHTML = "";
+  const filtered = publications.filter(pub => 
+    pub.title.toLowerCase().includes(filter.toLowerCase()) || 
+    pub.authors.toLowerCase().includes(filter.toLowerCase()) ||
+    pub.venue.toLowerCase().includes(filter.toLowerCase())
+  );
+  filtered.forEach(pub => {
+    const div = document.createElement('div');
+    div.className = 'publication';
+    div.innerHTML = `
+      <img class="pub-img" src="${pub.img}" alt="teaser">
+      <div class="pub-text">
+        <a class="title" href="${pub.links.project || '#'}" target="_blank">${pub.title}</a>
+        <div class="authors">${pub.authors}</div>
+        <em>${pub.venue}, ${pub.year}</em>
+        <div class="pub-links">
+          ${pub.links.project? `<a href="${pub.links.project}" class="btn" target="_blank">Project</a>` : ''}
+          ${pub.links.arxiv? `<a href="${pub.links.arxiv}" class="btn" target="_blank">Arxiv</a>` : ''}
+          ${pub.links.code? `<a href="${pub.links.code}" class="btn" target="_blank">Code</a>` : ''}
+          ${pub.links.dataset? `<a href="${pub.links.dataset}" class="btn" target="_blank">Dataset</a>` : ''}
+          ${pub.links.bibtex? `<a href="${pub.links.bibtex}" class="btn" target="_blank">Bibtex</a>` : ''}
+        </div>
+      </div>
+    `;
+    container.appendChild(div);
+  });
+  updateStats(filtered);
+}
+
+function updateStats(filtered) {
+  document.getElementById('total-pubs').textContent = filtered.length;
+  const authorsSet = new Set();
+  filtered.forEach(pub => pub.authors.split(',').forEach(a => authorsSet.add(a.trim())));
+  document.getElementById('total-authors').textContent = authorsSet.size;
+}
+
+searchInput.addEventListener('input', (e)=> renderPubs(e.target.value));
+
+// Initial render
+renderPubs();
+</script>
+</body>
+</html>
