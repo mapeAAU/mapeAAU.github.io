@@ -97,6 +97,27 @@
     .updates table{width:100%;border-collapse:collapse;}
     .updates td{padding:8px 6px;vertical-align:top;}
     .updates strong{color:var(--accent);}
+    .see-more-btn{
+      background:linear-gradient(180deg, rgba(59,130,246,0.2), rgba(59,130,246,0.1));
+      border:1px solid rgba(59,130,246,0.3);
+      color:var(--accent);
+      padding:10px 16px;
+      border-radius:8px;
+      cursor:pointer;
+      margin-top:16px;
+      font-weight:500;
+      transition:all 0.2s ease;
+    }
+    .see-more-btn:hover{
+      background:linear-gradient(180deg, rgba(59,130,246,0.3), rgba(59,130,246,0.2));
+      border-color:rgba(59,130,246,0.5);
+    }
+    #older-updates{
+      display:none;
+    }
+    #older-updates.show{
+      display:block;
+    }
 
     /* --- Publications --- */
     .pub{
@@ -164,148 +185,272 @@
       <img src="malte_circle.png" alt="profile photo">
     </header>
 
-    <main>
-      <section class="updates">
-        <h2>What's New</h2>
-        <table>
-			<tr>
-            <td><strong>[Mar26]</strong></td>
-	    <td>Organised a regional network event for research groups focused on marine computer vision in <i>Esbjerg, Denmark</i></td>	
-          </tr>
-          <tr>
-            <td></td>
-            <td> Attended the Pioneer Centre for AI Fine-Grained Collaboratory meetup at SDU in <i>Vejle, Denmark</i></td>
-          </tr>
-	  <tr>
-            <td></td>
-	    <td>LOTUS-PTO underwater camera and light setup running in <i>Kristineberg, Sweden</i></td>
-          </tr>
-
-          <tr>
-            <td><strong>[Feb26]</strong></td>
-	    <td>Program director for the <a href="https://www.aicentre.dk/active-p1-programs">Pioneer Centre for AI</a> program on <i>AI for Marine Perception</i></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Attended the <a href="https://mmad2026.github.io/">Multimodal Anomaly Detection Workshop</a> in <i>Aalborg, Denmark</i></td>
-          </tr>
-	  <tr>
-            <td></td>
-	    <td>Received an <a href="https://www.ai.aau.dk/">AI for the People</a> cross-dicsiplinary bridging grant</td>
-          </tr>
-
-          <tr>
-            <td><strong>[Jan26]</strong></td>
-	    <td>Hosted the session <i>Sensing The Sea - Advancing Marine Monitoring</i> at <a href="https://konferencer.au.dk/en/marine-science-meeting-2026">Danish Marine Science Meeting 2026</a> in <i> Helsingør, Denmark</i></td>
-          </tr>
-	  <tr>
-            <td></td>
-	    <td>Editor on the <a href="https://link.springer.com/journal/10044">Pattern Analysis and Applications</a>' special issue on <a href="https://link.springer.com/collections/hbjjbcfjbi">Marine Vision</a></td>
-          </tr>
-
-        <table>
-          <tr>
-            <td><strong>[Dec25]</strong></td>
-	    <td>Attended kick-off meeting for the <i>LOTUS-PTO</i> <a href="https://cetpartnership.eu/">CETPartnership project</a> in <i> Gothenburg, Sweden</i></td>
-          </tr>
-
-          <tr>
-            <td><strong>[Nov25]</strong></td>
-	    <td>Attended the Danish <a href="https://www.marinnaturgenopretning.dk/nyhedsarkiv/konference-26-27-november-2025/">Conference on Marine Restoration</a> in <i> Aalborg, Denmark</i></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Our paper <a href="https://vbn.aau.dk/da/publications/towards-visual-re-identification-of-fish-using-fine-grained-class/"><i>Towards Visual Re-Identification of Fish using Fine-Grained
-Classification for Electronic Monitoring in Fisheries</i></a> has been accepted at the <a href="https://www.nldl.org/">Northern Lights Deep Learning Conference (NLDL)</a> in <i>Tromsø, Norway</i></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Attended the <a href="https://ais25.eu/">AI in Science Summit</a> in <i>Copenhagen, Denmark</i></td>
-          </tr>
-          <tr>
-            <td><strong>[Oct25]</strong></td>
-            <td>Organized the <a href="https://vap.aau.dk/marinevision/">Joint Workshop on Marine Vision</a> at <a href="https://iccv.thecvf.com/">ICCV</a> in <i>Honolulu, USA</i></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Attended the <a href="https://danfish.com/">DanFish International</a> conference in <i>Aalborg, Denmark</i></td>
-          </tr>
-          <tr>
-            <td><strong>[Sep25]</strong></td>
-            <td>Gave an oral presentation and participated in a panel debate at <a href="https://www.nora.ai/news/2025/strengthening-nordic-uk-ai-partnerships-the-second.html">The Alan Turing Institute–Nordics AI Workshop: Maritime, Security & Arctic Research</a> in <i>Oslo, Norway</i></td>
-          </tr>
-          <tr>
-            <td><strong>[Jul25]</strong></td>
-            <td>This page is alive.</td>
-          </tr>
-        </table>
-      </section>
-
-      <section>
-        <h2>Highlighted Publications</h2>
-        
-        <div class="pub">
-          <img src="images/AutoFish.jpg" alt="AUTOFISH teaser">
-          <div class="pub-info">
-            <a href="https://vap.aau.dk/autofish/"><strong>AutoFish: Dataset and Benchmark for Fine-grained Analysis of Fish</strong></a><br>
-            <em>WACVW</em>, 2025<br>
-            <span>Stefan H. Bengtson, Daniel Lehotský, Vasiliki Ismiroglou, Niels Madsen, Thomas B. Moeslund, <strong> Malte Pedersen </strong></span>
-            <div class="pub-links">
-              <a href="https://vap.aau.dk/autofish/">project</a> /
-              <a href="https://arxiv.org/abs/2501.03767">arXiv</a> /
-              <a href="https://huggingface.co/datasets/vapaau/autofish">dataset</a>
-            </div>
-            <p>We propose a publicly available, fully annotated instance segmentation and re-identification dataset of similarly looking fish.</p>
-          </div>
-        </div>
-
-        <div class="pub">
-          <img src="images/motcom_teaser.jpg" alt="MOTCOM teaser">
-          <div class="pub-info">
-            <a href="https://vap.aau.dk/motcom/"><strong>MOTCOM: The Multi-Object Tracking Dataset Complexity Metric</strong></a><br>
-            <em>ECCV</em>, 2022<br>
-            <span><strong>Malte Pedersen</strong>, Joakim Bruslund Haurum, Patrick Dendorfer, Thomas B. Moeslund</span>
-            <div class="pub-links">
-              <a href="https://vap.aau.dk/motcom/">project</a> /
-              <a href="https://arxiv.org/abs/2207.10031">arXiv</a> /
-              <a href="https://github.com/JoakimHaurum/MOTCOM">code</a>
-            </div>
-            <p>We propose a set of metrics to determine the complexity of Multi-Object Tracking datasets along three axes: Motion, Appearance, and Occlusion.</p>
-          </div>
-        </div>
-
-        <div class="pub">
-          <img src="images/cvpr20_teaser.JPG" alt="3D-ZeF teaser">
-          <div class="pub-info">
-            <a href="https://vap.aau.dk/3d-zef/"><strong>3D-ZeF: A 3D Zebrafish Tracking Benchmark Dataset</strong></a><br>
-            <em>CVPR</em>, 2020<br>
-            <span><strong>Malte Pedersen</strong>*, Joakim Bruslund Haurum*, Stefan Hein Bengtson, Thomas B. Moeslund</span>
-            <div class="pub-links">
-              <a href="https://vap.aau.dk/3d-zef/">project</a> /
-              <a href="https://arxiv.org/abs/2006.08466">arXiv</a> /
-              <a href="https://bitbucket.org/aauvap/3d-zef">code</a> /
-              <a href="https://motchallenge.net/data/3D-ZeF20">dataset</a>
-            </div>
-            <p>We present a dataset for 3D multi-object tracking of zebrafish, captured using an off-the-shelf setup.</p>
-          </div>
-        </div>
-
-        <div class="pub">
-          <img src="images/cvpr19_brack_teaser.JPG" alt="Brackish dataset teaser">
-          <div class="pub-info">
-            <a href="https://openaccess.thecvf.com/content_CVPRW_2019/papers/AAMVEM/Pedersen_Detection_of_Marine_Animals_in_a_New_Underwater_Dataset_with_CVPRW_2019_paper.pdf"><strong>Detection of Marine Animals in a New Underwater Dataset with Varying Visibility</strong></a><br>
-            <em>CVPR Workshops</em>, 2019<br>
-            <span><strong>Malte Pedersen</strong>, Joakim Bruslund Haurum, Rikke Gade, Thomas B. Moeslund, Niels Madsen</span>
-            <div class="pub-links">
-              <a href="https://www.kaggle.com/datasets/aalborguniversity/brackish-dataset">dataset</a>
-            </div>
-            <p>We present a publicly available underwater dataset with annotated image sequences of fish, crabs, and starfish captured in brackish water with varying visibility.</p>
-          </div>
-        </div>
-      </section>
-
+    <main id="main-content">
+      <!-- Sections will be generated by JavaScript -->
     </main>
   </div>
+
+  <script>
+    // ============================================
+    // PAGE DATA - Easy to edit and maintain
+    // ============================================
+    
+    const pageData = {
+      updates: [
+        {
+          month: 'Mar26',
+          items: [
+            'Organised a regional network event for research groups focused on marine computer vision in <i>Esbjerg, Denmark</i>',
+            'Attended the Pioneer Centre for AI Fine-Grained Collaboratory meetup at SDU in <i>Vejle, Denmark</i>',
+            'LOTUS-PTO underwater camera and light setup running in <i>Kristineberg, Sweden</i>'
+          ]
+        },
+        {
+          month: 'Feb26',
+          items: [
+            'Program director for the <a href="https://www.aicentre.dk/active-p1-programs">Pioneer Centre for AI</a> program on <i>AI for Marine Perception</i>',
+            'Attended the <a href="https://mmad2026.github.io/">Multimodal Anomaly Detection Workshop</a> in <i>Aalborg, Denmark</i>',
+            'Received an <a href="https://www.ai.aau.dk/">AI for the People</a> cross-dicsiplinary bridging grant'
+          ]
+        },
+        {
+          month: 'Jan26',
+          items: [
+            'Hosted the session <i>Sensing The Sea - Advancing Marine Monitoring</i> at <a href="https://konferencer.au.dk/en/marine-science-meeting-2026">Danish Marine Science Meeting 2026</a> in <i>Helsingør, Denmark</i>',
+            'Editor on the <a href="https://link.springer.com/journal/10044">Pattern Analysis and Applications</a>\' special issue on <a href="https://link.springer.com/collections/hbjjbcfjbi">Marine Vision</a>'
+          ]
+        },
+        {
+          month: 'Dec25',
+          items: [
+            'Attended kick-off meeting for the <i>LOTUS-PTO</i> <a href="https://cetpartnership.eu/">CETPartnership project</a> in <i>Gothenburg, Sweden</i>'
+          ]
+        },
+        {
+          month: 'Nov25',
+          items: [
+            'Attended the Danish <a href="https://www.marinnaturgenopretning.dk/nyhedsarkiv/konference-26-27-november-2025/">Conference on Marine Restoration</a> in <i>Aalborg, Denmark</i>',
+            'Our paper <a href="https://vbn.aau.dk/da/publications/towards-visual-re-identification-of-fish-using-fine-grained-class/"><i>Towards Visual Re-Identification of Fish using Fine-Grained Classification for Electronic Monitoring in Fisheries</i></a> has been accepted at the <a href="https://www.nldl.org/">Northern Lights Deep Learning Conference (NLDL)</a> in <i>Tromsø, Norway</i>',
+            'Attended the <a href="https://ais25.eu/">AI in Science Summit</a> in <i>Copenhagen, Denmark</i>'
+          ]
+        },
+        {
+          month: 'Oct25',
+          items: [
+            'Organized the <a href="https://vap.aau.dk/marinevision/">Joint Workshop on Marine Vision</a> at <a href="https://iccv.thecvf.com/">ICCV</a> in <i>Honolulu, USA</i>',
+            'Attended the <a href="https://danfish.com/">DanFish International</a> conference in <i>Aalborg, Denmark</i>'
+          ]
+        },
+        {
+          month: 'Sep25',
+          items: [
+            'Gave an oral presentation and participated in a panel debate at <a href="https://www.nora.ai/news/2025/strengthening-nordic-uk-ai-partnerships-the-second.html">The Alan Turing Institute–Nordics AI Workshop: Maritime, Security & Arctic Research</a> in <i>Oslo, Norway</i>'
+          ]
+        },
+        {
+          month: 'Jul25',
+          items: [
+            'This page is alive.'
+          ]
+        }
+      ],
+      datasets: [
+        {
+          name: 'The Brackish Dataset',
+          url: 'https://vap.aau.dk/the-brackish-dataset/',
+          description: 'Bounding box annotated dataset of fish in brackish waters'
+        },
+        {
+          name: 'BrackishMOT',
+          url: 'https://vap.aau.dk/brackishmot/',
+          description: 'Multi-object tracking dataset of fish in brackish waters (based on the Brackish Dataset)'
+        },
+        {
+          name: 'AutoFish',
+          url: 'https://vap.aau.dk/autofish/',
+          description: 'Fine-grained species classification and re-identification dataset of cod-like fish'
+        },
+        {
+          name: '3D-ZeF',
+          url: 'https://vap.aau.dk/3d-zef/',
+          description: '3D multi-object tracking dataset of zebrafish'
+        },
+        {
+          name: 'JAMBO',
+          url: 'https://vap.aau.dk/jambo/',
+          description: 'Underwater image classification dataset for sand/stone habitats (<strong>multiple annotators</strong>)'
+        },
+        {
+          name: 'AURA',
+          url: 'https://zenodo.org/records/18520687',
+          description: 'Anomaly detection dataset for underwater images (<strong>multiple annotators</strong>)'
+        }
+      ],
+      publications: [
+        {
+          title: 'AutoFish: Dataset and Benchmark for Fine-grained Analysis of Fish',
+          url: 'https://vap.aau.dk/autofish/',
+          venue: 'WACVW',
+          year: '2025',
+          authors: 'Stefan H. Bengtson, Daniel Lehotský, Vasiliki Ismiroglou, Niels Madsen, Thomas B. Moeslund, <strong>Malte Pedersen</strong>',
+          description: 'We propose a publicly available, fully annotated instance segmentation and re-identification dataset of similarly looking fish.',
+          image: 'images/AutoFish.jpg',
+          links: [
+            { text: 'project', url: 'https://vap.aau.dk/autofish/' },
+            { text: 'arXiv', url: 'https://arxiv.org/abs/2501.03767' },
+            { text: 'dataset', url: 'https://huggingface.co/datasets/vapaau/autofish' }
+          ]
+        },
+        {
+          title: 'MOTCOM: The Multi-Object Tracking Dataset Complexity Metric',
+          url: 'https://vap.aau.dk/motcom/',
+          venue: 'ECCV',
+          year: '2022',
+          authors: '<strong>Malte Pedersen</strong>, Joakim Bruslund Haurum, Patrick Dendorfer, Thomas B. Moeslund',
+          description: 'We propose a set of metrics to determine the complexity of Multi-Object Tracking datasets along three axes: Motion, Appearance, and Occlusion.',
+          image: 'images/motcom_teaser.jpg',
+          links: [
+            { text: 'project', url: 'https://vap.aau.dk/motcom/' },
+            { text: 'arXiv', url: 'https://arxiv.org/abs/2207.10031' },
+            { text: 'code', url: 'https://github.com/JoakimHaurum/MOTCOM' }
+          ]
+        },
+        {
+          title: '3D-ZeF: A 3D Zebrafish Tracking Benchmark Dataset',
+          url: 'https://vap.aau.dk/3d-zef/',
+          venue: 'CVPR',
+          year: '2020',
+          authors: '<strong>Malte Pedersen</strong>*, Joakim Bruslund Haurum*, Stefan Hein Bengtson, Thomas B. Moeslund',
+          description: 'We present a dataset for 3D multi-object tracking of zebrafish, captured using an off-the-shelf setup.',
+          image: 'images/cvpr20_teaser.JPG',
+          links: [
+            { text: 'project', url: 'https://vap.aau.dk/3d-zef/' },
+            { text: 'arXiv', url: 'https://arxiv.org/abs/2006.08466' },
+            { text: 'code', url: 'https://bitbucket.org/aauvap/3d-zef' },
+            { text: 'dataset', url: 'https://motchallenge.net/data/3D-ZeF20' }
+          ]
+        },
+        {
+          title: 'Detection of Marine Animals in a New Underwater Dataset with Varying Visibility',
+          url: 'https://openaccess.thecvf.com/content_CVPRW_2019/papers/AAMVEM/Pedersen_Detection_of_Marine_Animals_in_a_New_Underwater_Dataset_with_CVPRW_2019_paper.pdf',
+          venue: 'CVPR Workshops',
+          year: '2019',
+          authors: '<strong>Malte Pedersen</strong>, Joakim Bruslund Haurum, Rikke Gade, Thomas B. Moeslund, Niels Madsen',
+          description: 'We present a publicly available underwater dataset with annotated image sequences of fish, crabs, and starfish captured in brackish water with varying visibility.',
+          image: 'images/cvpr19_brack_teaser.JPG',
+          links: [
+            { text: 'dataset', url: 'https://www.kaggle.com/datasets/aalborguniversity/brackish-dataset' }
+          ]
+        }
+      ]
+    };
+
+    // ============================================
+    // RENDERING FUNCTIONS
+    // ============================================
+
+    function renderUpdates() {
+      const recentCount = 3; // Show 3 months by default
+      const recentUpdates = pageData.updates.slice(0, recentCount);
+      const olderUpdates = pageData.updates.slice(recentCount);
+
+      let html = '<section class="updates"><h2>What\'s New</h2><table>';
+      
+      // Render recent updates
+      recentUpdates.forEach(monthData => {
+        let isFirst = true;
+        monthData.items.forEach(item => {
+          html += '<tr>';
+          if (isFirst) {
+            html += `<td><strong>[${monthData.month}]</strong></td>`;
+            isFirst = false;
+          } else {
+            html += '<td></td>';
+          }
+          html += `<td>${item}</td></tr>`;
+        });
+      });
+
+      html += '</table>';
+
+      // Render older updates (hidden by default)
+      if (olderUpdates.length > 0) {
+        html += '<div id="older-updates"><table>';
+        olderUpdates.forEach(monthData => {
+          let isFirst = true;
+          monthData.items.forEach(item => {
+            html += '<tr>';
+            if (isFirst) {
+              html += `<td><strong>[${monthData.month}]</strong></td>`;
+              isFirst = false;
+            } else {
+              html += '<td></td>';
+            }
+            html += `<td>${item}</td></tr>`;
+          });
+        });
+        html += '</table></div>';
+        html += '<button class="see-more-btn" onclick="toggleOlderUpdates()">See More</button>';
+      }
+
+      html += '</section>';
+      return html;
+    }
+
+    function renderDatasets() {
+      let html = '<section class="updates"><h2>Underwater Datasets</h2><table>';
+      
+      pageData.datasets.forEach(dataset => {
+        html += `<tr>
+          <td><strong><a href="${dataset.url}">${dataset.name}</a></strong></td>
+          <td>${dataset.description}</td>
+        </tr>`;
+      });
+
+      html += '</table></section>';
+      return html;
+    }
+
+    function renderPublications() {
+      let html = '<section><h2>Highlighted Publications</h2>';
+      
+      pageData.publications.forEach(pub => {
+        const linksHtml = pub.links.map(link => 
+          `<a href="${link.url}">${link.text}</a>`
+        ).join(' / ');
+
+        html += `<div class="pub">
+          <img src="${pub.image}" alt="${pub.title} teaser">
+          <div class="pub-info">
+            <a href="${pub.url}"><strong>${pub.title}</strong></a><br>
+            <em>${pub.venue}</em>, ${pub.year}<br>
+            <span>${pub.authors}</span>
+            <div class="pub-links">${linksHtml}</div>
+            <p>${pub.description}</p>
+          </div>
+        </div>`;
+      });
+
+      html += '</section>';
+      return html;
+    }
+
+    function toggleOlderUpdates() {
+      const olderUpdates = document.getElementById('older-updates');
+      const btn = document.querySelector('.see-more-btn');
+      olderUpdates.classList.toggle('show');
+      btn.textContent = olderUpdates.classList.contains('show') ? 'Show Less' : 'See More';
+    }
+
+    // ============================================
+    // INITIALIZATION
+    // ============================================
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const mainContent = document.getElementById('main-content');
+      mainContent.innerHTML = renderUpdates() + renderDatasets() + renderPublications();
+    });
+  </script>
 </body>
 </html>
 
