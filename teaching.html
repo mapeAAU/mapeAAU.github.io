@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Supervision & Teaching</title>
+  <link rel="icon" type="image/png" href="images/vapLogo-notext-white.png">
   <style>
     :root{
       --bg:#0f1724;
@@ -88,39 +89,39 @@
   <script>
     // Data: each item has year, title, kind, programme, semester, count (if present)
     const items = [
-      {year:2024,title:'Computer vision in underwater environments',kind:'PhD',programme:'VAP Lab',semester:'PhD',count:1},
-      {year:2018,title:'Comparing a virtual agent\'s behaviour\'s effect on user learning and engagement',kind:'Master',programme:'Medialogy',semester:'1st semester',count:3},
-      {year:2023,title:'A system for synthetic machine learning data synthesis in challenging unverwater environments',kind:'Master',programme:'Medialogy',semester:'1st semester',count:5},
-      {year:2022,title:'Salmon counting by comparison of line logic, contour tracking, and yolov5/deepsort solutions',kind:'Master',programme:'AVS',semester:'1st semester',count:4},
+      {year:2026,title:'Globally Aligned Localization from Orthoimagery',kind:'MasterThesis',programme:'Robotics',semester:'Master\'s thesis',count:1},
+      {year:2026,title:'Finding Søren the Mussel: Learning from a Case Study on Human and Model Performance for Counting Mussels in Underwater Natural Habitats',kind:'MasterThesis',programme:'ITU',semester:'Master\'s thesis',count:1},
       {year:2025,title:'Leveraging Pose Estimation and Tail Features for Experimental Autoimmune Encephalomyelitis Estimation in Mouse Models',kind:'Master',programme:'AVS',semester:'1st semester',count:5},
+      {year:2025,title:'Fish re‑identification in electronic monitoring systems with conveyor belts',kind:'MasterThesis',programme:'DTU Aqua',semester:'Master\'s thesis',count:1},
+      {year:2025,title:'Computer vision for fouling assessment',kind:'Bachelor',programme:'Medialogy',semester:'Bachelor\'s thesis',count:5},
+      {year:2025,title:'Detection and classification of fouling using computer vision',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:4},
+      {year:2024,title:'Computer vision in underwater environments',kind:'PhD',programme:'VAP Lab',semester:'PhD',count:1},
+      {year:2024,title:'Underwater 3d reconstruction',kind:'BachelorThesis',programme:'IPS/Comtech',semester:'Bachelor\'s thesis',count:4},
+      {year:2023,title:'A system for synthetic machine learning data synthesis in challenging unverwater environments',kind:'Master',programme:'Medialogy',semester:'1st semester',count:5},
       {year:2023,title:'Rud-pt: a realistic underwater dataset with pose tracking',kind:'Master',programme:'Robotics',semester:'1st semester',count:3},
-      {year:2018,title:'Benthos classification: computer vision',kind:'Master',programme:'VGIS',semester:'2nd semester',count:2},
+      {year:2022,title:'Salmon counting by comparison of line logic, contour tracking, and yolov5/deepsort solutions',kind:'Master',programme:'AVS',semester:'1st semester',count:4},
+      {year:2021,title:'Regression based multi‑view zebrafish tracking',kind:'MasterThesis',programme:'VGIS',semester:'Master\'s thesis',count:1},
+      {year:2021,title:'Aiding the marine biologist workflow using a digital fish school simulation',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:6},
+      {year:2021,title:'Analysis and summarisation of football games using computer vision',kind:'BachelorThesis',programme:'IPS/Comtech',semester:'Bachelor\'s thesis',count:3},
+      {year:2020,title:'Classification and localization of sea animals in brackish waters with diverse visibility',kind:'MasterThesis',programme:'VGIS',semester:'Master\'s thesis',count:1},
+      {year:2020,title:'Deep object descriptions for mot',kind:'MasterThesis',programme:'Robotics',semester:'Master\'s thesis',count:1},
+      {year:2020,title:'Finding and communicating underwater events',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:4},
+      {year:2020,title:'Water number analyzer',kind:'BachelorThesis',programme:'Robotics',semester:'Bachelor\'s thesis',count:3},
       {year:2019,title:'Detecting cars in lidar point clouds using density based clustering and support vector machine',kind:'Master',programme:'VGIS',semester:'3rd semester',count:1},
       {year:2019,title:'Zebrafish occlusion detection',kind:'MasterThesis',programme:'VGIS',semester:'Master\'s thesis',count:1},
       {year:2019,title:'Turbidity measurement based on computer vision',kind:'MasterThesis',programme:'VGIS',semester:'Master\'s thesis',count:1},
-      {year:2020,title:'Classification and localization of sea animals in brackish waters with diverse visibility',kind:'MasterThesis',programme:'VGIS',semester:'Master\'s thesis',count:1},
-      {year:2021,title:'Regression based multi‑view zebrafish tracking',kind:'MasterThesis',programme:'VGIS',semester:'Master\'s thesis',count:1},
-      {year:2020,title:'Deep object descriptions for mot',kind:'MasterThesis',programme:'Robotics',semester:'Master\'s thesis',count:1},
-      {year:2026,title:'Globally Aligned Localization from Orthoimagery',kind:'MasterThesis',programme:'Robotics',semester:'Master\'s thesis',count:1},
-      {year:2026,title:'Finding Søren the Mussel: Learning from a Case Study on Human and Model Performance for Counting Mussels in Underwater Natural Habitats',kind:'MasterThesis',programme:'ITU',semester:'Master\'s thesis',count:1},
-      {year:2025,title:'Fish re‑identification in electronic monitoring systems with conveyor belts',kind:'MasterThesis',programme:'DTU Aqua',semester:'Master\'s thesis',count:1},
-      {year:2017,title:'Bubble destroyers: visual computing - human perception',kind:'Bachelor',programme:'Medialogy',semester:'3rd semester',count:6},
-      {year:2018,title:'Augmenting tabletop maps through pervasive gaming and computer',kind:'Bachelor',programme:'Medialogy',semester:'3rd semester',count:5},
-      {year:2018,title:'Interactive learning interface',kind:'Bachelor',programme:'Medialogy',semester:'3rd semester',count:6},
       {year:2019,title:'Digitizing the beer pong experience for university students using computer vision',kind:'Bachelor',programme:'Medialogy',semester:'3rd semester',count:5},
       {year:2019,title:'Teaching history through an interactive table',kind:'Bachelor',programme:'Medialogy',semester:'3rd semester',count:5},
+      {year:2019,title:'Visualizing deer activity using deep learning',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:3},
+      {year:2019,title:'Automated identification of damaged shackles',kind:'BachelorThesis',programme:'IPS/Comtech',semester:'Bachelor\'s thesis',count:2},
+      {year:2018,title:'Comparing a virtual agent\'s behaviour\'s effect on user learning and engagement',kind:'Master',programme:'Medialogy',semester:'1st semester',count:3},
+      {year:2018,title:'Benthos classification: computer vision',kind:'Master',programme:'VGIS',semester:'2nd semester',count:2},
+      {year:2018,title:'Augmenting tabletop maps through pervasive gaming and computer',kind:'Bachelor',programme:'Medialogy',semester:'3rd semester',count:5},
+      {year:2018,title:'Interactive learning interface',kind:'Bachelor',programme:'Medialogy',semester:'3rd semester',count:6},
       {year:2018,title:'Developing an interactive learning-table with a tangible programming user interface',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:4},
       {year:2018,title:'Teaching computational thinking through interactive gameplay and computer vision',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:3},
-      {year:2019,title:'Visualizing deer activity using deep learning',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:3},
-      {year:2020,title:'Finding and communicating underwater events',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:4},
-      {year:2021,title:'Aiding the marine biologist workflow using a digital fish school simulation',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:6},
-      {year:2025,title:'Computer vision for fouling assessment',kind:'Bachelor',programme:'Medialogy',semester:'Bachelor\'s thesis',count:5},
-      {year:2025,title:'Detection and classification of fouling using computer vision',kind:'BachelorThesis',programme:'Medialogy',semester:'Bachelor\'s thesis',count:4},
       {year:2018,title:'Reading analogue presure gauges using digital image processing',kind:'BachelorThesis',programme:'IPS/Comtech',semester:'Bachelor\'s thesis',count:3},
-      {year:2019,title:'Automated identification of damaged shackles',kind:'BachelorThesis',programme:'IPS/Comtech',semester:'Bachelor\'s thesis',count:2},
-      {year:2021,title:'Analysis and summarisation of football games using computer vision',kind:'BachelorThesis',programme:'IPS/Comtech',semester:'Bachelor\'s thesis',count:3},
-      {year:2024,title:'Underwater 3d reconstruction',kind:'BachelorThesis',programme:'IPS/Comtech',semester:'Bachelor\'s thesis',count:4},
-      {year:2020,title:'Water number analyzer',kind:'BachelorThesis',programme:'Robotics',semester:'Bachelor\'s thesis',count:3}
+      {year:2017,title:'Bubble destroyers: visual computing - human perception',kind:'Bachelor',programme:'Medialogy',semester:'3rd semester',count:6}
     ];
 
     const listEl = document.getElementById('list');
